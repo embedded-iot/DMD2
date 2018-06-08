@@ -13,7 +13,8 @@
 #define DISPLAYS_WIDE 3
 #define DISPLAYS_HIGH 1
 
-SoftDMD dmd(DISPLAYS_WIDE,DISPLAYS_HIGH);
+// SoftDMD dmd(DISPLAYS_WIDE,DISPLAYS_HIGH);
+SPIDMD dmd(1,1, 5, 4, 12, 15);  // DMD controls the entire display
 DMD_TextBox box(dmd, 0, 0, 32, 16);
 
 // the setup routine runs once when you press reset:

@@ -17,7 +17,8 @@ const uint8_t *FONT = Arial14;
 
 const char *MESSAGE = "abcdefghijklmnopqrstuvwxyz";
 
-SoftDMD dmd(WIDTH,1);  // DMD controls the entire display
+// SoftDMD dmd(WIDTH,1);  // DMD controls the entire display
+SPIDMD dmd(1,1, 5, 4, 12, 15);  // DMD controls the entire display
 DMD_TextBox box(dmd);  // "box" provides a text box to automatically write to/scroll the display
 
 // the setup routine runs once when you press reset:

@@ -9,7 +9,8 @@
 const int COUNTDOWN_FROM = 12;
 int counter = COUNTDOWN_FROM;
 
-SoftDMD dmd(1,1);  // DMD controls the entire display
+// SoftDMD dmd(1,1);  // DMD controls the entire display
+SPIDMD dmd(1,1, 5, 4, 12, 15);  // DMD controls the entire display
 DMD_TextBox box(dmd, 0, 2);  // "box" provides a text box to automatically write to/scroll the display
 
 // the setup routine runs once when you press reset:
