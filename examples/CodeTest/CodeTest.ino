@@ -46,10 +46,11 @@
 #include <fonts/Arial_Black_16_ISO_8859_1.h>
 #include <fonts/Arial14.h>
 #include <fonts/Arial_Black_16_Utf_8.h>
+#include <fonts/My32x15Font.h>
 
 //Fire up the DMD library as dmd
 #define DISPLAYS_ACROSS 1
-#define DISPLAYS_DOWN 1
+#define DISPLAYS_DOWN 2
 SPIDMD dmd(DISPLAYS_ACROSS, DISPLAYS_DOWN, 5, 4, 12, 15);  // DMD controls the entire display
 
 long timeTimer = 400000L; // 250us
@@ -58,7 +59,7 @@ void setup(void)
 {
 
   Serial.begin(9600);
-  dmd.setBrightness(255);
+  dmd.setBrightness(128);
   dmd.selectFont(Arial14);
   dmd.begin();
   //  clear/init the DMD pixels held in RAM
@@ -72,9 +73,15 @@ void setup(void)
   loop
   Arduino architecture main loop
 --------------------------------------------------------------------------------------*/
+bool flag ;
 void loop(void)
 {
-
+  if (flag) {
+    dmd.setBrightness(255);
+  } else {
+    dmd.setBrightness(127);
+  }
+  flag = !flag;
   // clock();
   // TestGraph();
   // testDrawChar();
@@ -135,12 +142,19 @@ void testString() {
   //  const char *MSG = "M""\x81""nh!";
   //  dmd.drawMarquee(MSG,strlen(MSG),(32*DISPLAYS_ACROSS)-1,0);
   //  dmd.clearScreen();
-   dmd.selectFont(Arial_Black_16_Utf_8);
+   dmd.selectFont(My32x15Font);
    // Français, Österreich, Magyarország
-   const char *MSG = "M""\x81""nh!";
+  //  const char *MSG = "M""\x81""nh.123456789";
+  const char *MSG = "!";
   //  dmd.drawMarquee(MSG,strlen(MSG),(32*DISPLAYS_ACROSS)-1,0);
+
   dmd.fillScreen(false);
-   dmd.drawString(0,0, MSG, GRAPHICS_ON); 
+  dmd.drawString(0,0, MSG, GRAPHICS_ON); 
+  // const char *MSG1 = "abc12345";
+  // //  dmd.drawMarquee(MSG,strlen(MSG),(32*DISPLAYS_ACROSS)-1,0);
+  // // dmd.fillScreen(false);
+  //  dmd.drawString(0,16, MSG1, GRAPHICS_ON); 
+
    delay(2000);
    // /////////////////////////////////////////////////////////////////////////////////////
   //  Lỗi không dịch chuyển dc 
