@@ -70,7 +70,7 @@ size_t DMD_TextBox::write(uint8_t character) {
     dmd.drawFilledBox(cur_x+left,cur_y+top,left+width,cur_y+top+rowHeight, inverted ? GRAPHICS_ON : GRAPHICS_OFF);
   }
 
-  dmd.drawChar(cur_x+left,cur_y+top,character, inverted ? GRAPHICS_OFF : GRAPHICS_ON);
+  dmd.drawChar(cur_x+left,cur_y+top,character, inverted ? GRAPHICS_OFF : GRAPHICS_ON, 0);
   cur_x += char_width;
   return 1;
 }

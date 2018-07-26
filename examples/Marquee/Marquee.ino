@@ -10,11 +10,11 @@
 #include <fonts/Arial14.h>
 
 /* For "Hello World" as your message, leave the width at 4 even if you only have one display connected */
-#define DISPLAYS_WIDE 3
+#define DISPLAYS_WIDE 2
 #define DISPLAYS_HIGH 1
 
 // SoftDMD dmd(DISPLAYS_WIDE,DISPLAYS_HIGH);
-SPIDMD dmd(1,1, 5, 4, 12, 15);  // DMD controls the entire display
+SPIDMD dmd(DISPLAYS_WIDE,DISPLAYS_HIGH, 5, 4, 12, 15);  // DMD controls the entire display
 DMD_TextBox box(dmd, 0, 0, 32, 16);
 
 // the setup routine runs once when you press reset:
@@ -45,7 +45,7 @@ void loop() {
       case 3:
        dmd.marqueeScrollY(-1); break;
     }
-    delay(10);
+    delay(100);
   }
 
   // Move to the next phase

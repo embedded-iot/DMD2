@@ -136,7 +136,7 @@ class DMDFrame
   // Text primitives
   void selectFont(const uint8_t* font);
   const inline uint8_t *getFont(void) { return font; }
-  int drawChar(const int x, const int y, const char letter, DMDGraphicsMode mode=GRAPHICS_ON, const uint8_t *font = NULL);
+  int drawChar(const int x, const int y, const char letter, DMDGraphicsMode mode=GRAPHICS_ON, const int overByte = NULL, const uint8_t *font = NULL);
 
   void drawString(int x, int y, const char *bChars, DMDGraphicsMode mode=GRAPHICS_ON, const uint8_t *font = NULL);
   void drawString(int x, int y, const String &str, DMDGraphicsMode mode=GRAPHICS_ON, const uint8_t *font = NULL);
@@ -159,6 +159,7 @@ class DMDFrame
 #endif
   unsigned int stringWidth(const char *bChars, const uint8_t *font = NULL);
   unsigned int stringWidth(const String &str, const uint8_t *font = NULL);
+  char* ConvertStringToArrayChar(String x, bool display);
 
   // Scrolling & marquee support
   void scrollY(int scrollBy);
@@ -228,6 +229,7 @@ public:
   virtual void beginNoTimer();
 
   inline void setBrightness(byte level) { this->brightness = level; };
+  
 protected:
   volatile byte scan_row;
   byte pin_noe;
