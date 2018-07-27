@@ -336,7 +336,7 @@ char* DMDFrame::ConvertStringToArrayChar(String x, bool display) {
           else if (y[i+1] == 154) { tg = "Ú"; c = 246; }
           else if (y[i+1] == 153) { tg = "Ù"; c = 247; }
 
-          else if (y[i+1] == 157) { tg = "Ý"; c = 258 - 255; resultConvert[len++] = 255;}
+          else if (y[i+1] == 157) { tg = "Ý"; c = 4; }
 
 
         } else if (y[i] == 196 && i < length - 1) {
@@ -486,13 +486,13 @@ char* DMDFrame::ConvertStringToArrayChar(String x, bool display) {
             else if (y[i+2] == 168) { tg = "Ứ"; c = 252; }
             else if (y[i+2] == 170) { tg = "Ừ"; c = 253; }
             else if (y[i+2] == 176) { tg = "Ự"; c = 254; }
-            else if (y[i+2] == 172) { tg = "Ử"; c = 256 - 255; resultConvert[len++] = 255;}
-            else if (y[i+2] == 174) { tg = "Ữ"; c = 257 - 255; resultConvert[len++] = 255;}
+            else if (y[i+2] == 172) { tg = "Ử"; c = 2; }
+            else if (y[i+2] == 174) { tg = "Ữ"; c = 3; }
 
-            else if (y[i+2] == 178) { tg = "Ỳ"; c = 259 - 255; resultConvert[len++] = 255;}
-            else if (y[i+2] == 180) { tg = "Ỵ"; c = 260 - 255; resultConvert[len++] = 255;}
-            else if (y[i+2] == 182) { tg = "Ỷ"; c = 261 - 255; resultConvert[len++] = 255;}
-            else if (y[i+2] == 184) { tg = "Ỹ"; c = 262 - 255; resultConvert[len++] = 255;}
+            else if (y[i+2] == 178) { tg = "Ỳ"; c = 5;}
+            else if (y[i+2] == 180) { tg = "Ỵ"; c = 6;}
+            else if (y[i+2] == 182) { tg = "Ỷ"; c = 7;}
+            else if (y[i+2] == 184) { tg = "Ỹ"; c = 8;}
 
 
 
