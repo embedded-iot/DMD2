@@ -13,7 +13,7 @@ const int WIDTH = 2;
 const int HEIGHT = 1;
 
 // SoftDMD dmd(WIDTH,HEIGHT);
-SPIDMD dmd(1,1, 5, 4, 12, 15);  // DMD controls the entire display
+SPIDMD dmd(WIDTH,HEIGHT, 5, 4, 12, 15);  // DMD controls the entire display
 
 void populate_random_cells() {
   // Populate the initial display randomly

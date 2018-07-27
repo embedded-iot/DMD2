@@ -47,6 +47,7 @@
 #include <fonts/Arial14.h>
 #include <fonts/Arial_Black_16_Utf_8.h>
 #include <fonts/My32x15Font.h>
+#include <fonts/Font_1.h>
 
 //Fire up the DMD library as dmd
 #define DISPLAYS_ACROSS 1
@@ -59,7 +60,7 @@ void setup(void)
 {
 
   Serial.begin(9600);
-  dmd.setBrightness(128);
+  dmd.setBrightness(1);
   dmd.selectFont(Arial14);
   dmd.begin();
   //  clear/init the DMD pixels held in RAM
@@ -76,12 +77,12 @@ void setup(void)
 bool flag ;
 void loop(void)
 {
-  if (flag) {
-    dmd.setBrightness(255);
-  } else {
-    dmd.setBrightness(127);
-  }
-  flag = !flag;
+  // if (flag) {
+  //   dmd.setBrightness(255);
+  // } else {
+  //   dmd.setBrightness(127);
+  // }
+  // flag = !flag;
   // clock();
   // TestGraph();
   // testDrawChar();
@@ -100,9 +101,9 @@ void loop(void)
   // testStripeChaser(); // Khong hoat dong
   //  testWritePixel();
   // testDrawLine();
-  // testChar();
+  testChar();
   // testCharUnicode();
-  testString();
+  // testString();
 }
 void print(String s) {
   Serial.println(s);
@@ -111,11 +112,11 @@ void testChar() {
   dmd.clearScreen();
   // dmd.selectFont(Arial_Black_16);
   // dmd.selectFont(Arial_14);
-  dmd.selectFont(Arial_Black_16_ISO_8859_1);
-  for (int i = 32; i < 256; i++) {
+  dmd.selectFont(Font_1);
+  for (int i = 32; i < 262; i++) {
     dmd.clearScreen();
     print(String(i));
-    dmd.drawChar(  0,  0, (char)i , GRAPHICS_ON);
+    dmd.drawChar(  0,  0, (i > 255 ? i - 255 : i), GRAPHICS_ON, (i > 255 ? 1 : 0));
     delay(1000);
   }
 }
@@ -154,19 +155,17 @@ void testString() {
   // //  dmd.drawMarquee(MSG,strlen(MSG),(32*DISPLAYS_ACROSS)-1,0);
   // // dmd.fillScreen(false);
   //  dmd.drawString(0,16, MSG1, GRAPHICS_ON); 
-
-   delay(2000);
    // /////////////////////////////////////////////////////////////////////////////////////
   //  Lỗi không dịch chuyển dc 
    ////////////////////////////////////////////////////////////////////////////////////////
-  //  long start=millis();
-  //  long timer=start;
-  //  while(1){
-  //    if ((timer+100) < millis()) {
-  //      dmd.marqueeScrollX(1);
-  //      timer=millis();
-  //    }
-  //  }
+   long start=millis();
+   long timer=start;
+   while(1){
+     if ((timer+1000) < millis()) {
+       dmd.marqueeScrollX(1);
+       timer=millis();
+     }
+   }
 }
 void clock() {
   // 10 x 14 font clock, including demo of OR and NOR modes for pixels so that the flashing colon can be overlayed
@@ -285,16 +284,13 @@ void testDrawImage() {
      }
    }
    ////////////////////////////////////////////////////////////////////////////// 
-  //   Không hoạt động
-  // long start=millis();
-  // long timer=start;
-  // boolean ret=false;
-  // while(!ret){
-  //   if ((timer+100) < millis()) {
-  //     ret=dmd.marqueeScrollX( 1 );
-  //     timer=millis();
-  //   }
-  // }
+  long start=millis();
+  long timer=start;
+  boolean ret=true;
+  while(ret){
+    dmd.marqueeScrollX( 1 );
+    delay(100);
+  }
 }
 // ///////////////////////////////////////////////////////////////////////////////////
 //  Khong hoat dong

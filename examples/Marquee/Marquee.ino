@@ -15,17 +15,17 @@
 
 // SoftDMD dmd(DISPLAYS_WIDE,DISPLAYS_HIGH);
 SPIDMD dmd(DISPLAYS_WIDE,DISPLAYS_HIGH, 5, 4, 12, 15);  // DMD controls the entire display
-DMD_TextBox box(dmd, 0, 0, 32, 16);
+DMD_TextBox box(dmd);
 
 // the setup routine runs once when you press reset:
 void setup() {
-  dmd.setBrightness(255);
+  dmd.setBrightness(1);
   dmd.selectFont(Arial14);
   dmd.begin();
   /* TIP: If you want a longer string here than fits on your display, just define the display DISPLAYS_WIDE value to be wider than the
     number of displays you actually have.
    */
-  dmd.drawString(0, 0, F("Hello World!"));
+  dmd.drawString(0, 0, F("Hello World! 12345678"));
 }
 
 int phase = 0; // 0-3, 'phase' value determines direction
@@ -35,7 +35,7 @@ void loop() {
   int steps = random(48); // Each time we scroll a random distance
   for(int i = 0; i < steps; i++) {
     // Do a different type of scroll, depending on which phase we are in
-    switch(phase) {
+    switch(1) {
       case 0:
        dmd.marqueeScrollX(1); break;
       case 1:

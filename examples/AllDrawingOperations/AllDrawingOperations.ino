@@ -6,8 +6,10 @@
 #include <DMD2.h>
 #include <fonts/SystemFont5x7.h>
 
-// SoftDMD dmd(1,1);  // DMD controls the entire display
-SPIDMD dmd(1,1, 5, 4, 12, 15);  // DMD controls the entire display
+//Fire up the DMD library as dmd
+#define DISPLAYS_ACROSS 1
+#define DISPLAYS_DOWN 2
+SPIDMD dmd(DISPLAYS_ACROSS, DISPLAYS_DOWN, 5, 4, 12, 15);  // DMD controls the entire display
 
 // the setup routine runs once when you press reset:
 void setup() {
