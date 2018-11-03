@@ -54,7 +54,7 @@
 
 const static uint8_t Font_1[] PROGMEM = {
     0x64, 0x36, // size
-    0x0A, // width
+    0x07, // width
     0x10, // height
     0x02, // first char
     0xFD, // char count
