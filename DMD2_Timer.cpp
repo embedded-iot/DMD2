@@ -33,7 +33,7 @@
 
 //#define NO_TIMERS
 
-#define ESP8266_TIMER0_TICKS microsecondsToClockCycles(250) // 250 microseconds between calls to scan_running_dmds seems to works better than 1000.
+#define ESP8266_TIMER0_TICKS microsecondsToClockCycles(250)// Min 3 // 250 microseconds between calls to scan_running_dmds seems to works better than 1000.
 
 #ifdef NO_TIMERS
 

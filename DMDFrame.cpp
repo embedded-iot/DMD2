@@ -21,7 +21,7 @@
  If not, see <http://www.gnu.org/licenses/>.
 */
 
-DMDFrame::DMDFrame(byte pixelsWide, byte pixelsHigh)
+DMDFrame::DMDFrame(int pixelsWide, byte pixelsHigh)
   :
   width(pixelsWide),
   height(pixelsHigh),
